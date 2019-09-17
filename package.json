@@ -1,0 +1,49 @@
+{
+  "name": "parcel-phaser-spine",
+  "version": "0.0.1",
+  "main": "src/index.html",
+  "author": "Koen Bollen",
+  "license": "ISC",
+  "private": true,
+  "scripts": {
+    "watch": "parcel src/index.html",
+    "build": "parcel build --experimental-scope-hoisting --public-url . src/index.html",
+    "lint": "standard"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "phaser": "^3.19.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0-0",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-transform-runtime": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "babel-eslint": "^10.0.2",
+    "parcel-bundler": "^1.12.3",
+    "parcel-plugin-static-files-copy": "^2.2.1",
+    "standard": "^13.1.0"
+  },
+  "staticFiles": {
+    "staticPath": "assets",
+    "watcherGlob": "**"
+  },
+  "standard": {
+    "parser": "babel-eslint"
+  },
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "useBuiltIns": false,
+          "modules": false
+        }
+      ]
+    ],
+    "plugins": [
+      "@babel/plugin-transform-runtime",
+      "@babel/plugin-proposal-class-properties"
+    ]
+  }
+}
