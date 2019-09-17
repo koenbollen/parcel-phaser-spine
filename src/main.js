@@ -4,6 +4,8 @@ import Phaser from 'phaser'
 import LoadingScene from '/scenes/loading'
 import GameScene from '/scenes/game'
 
+import 'phaser/plugins/spine/dist/SpinePlugin' // ???
+
 import '/style.css'
 
 const config = {
@@ -18,7 +20,12 @@ const config = {
     autoCenter: Phaser.Scale.CENTER_BOTH
   },
   scene: null,
-  backgroundColor: '#4a485f'
+  backgroundColor: '#4a485f',
+  plugins: {
+    scene: [
+      { key: 'SpinePlugin', plugin: window.SpinePlugin, mapping: 'spine' }
+    ]
+  }
 }
 
 const settings = {

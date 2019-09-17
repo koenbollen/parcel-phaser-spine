@@ -9,6 +9,12 @@ export default class GameScene extends Phaser.Scene {
 
     this.white = this.add.image(100, 100, 'white')
     this.white.setDisplaySize(120, 80)
+
+    try {
+      this.boy = this.add.spine(200, 650, 'spineboy')
+    } catch(e) {
+      console.log('couldnt add spineboy:', e)
+    }
   }
 
   update (time, delta) {

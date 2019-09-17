@@ -5,6 +5,9 @@ import GameScene from '/scenes/game'
 function assets (loader) {
   loader.image('white', 'images/white.png')
   loader.image('background', 'images/background.png')
+
+  // Loading spine works:
+  loader.spine('spineboy', 'images/sprites/spineboy/spineboy-pro.json', [ 'images/sprites/spineboy/spineboy-pma.atlas' ], true);
 }
 
 export default class LoadingScene extends Phaser.Scene {
