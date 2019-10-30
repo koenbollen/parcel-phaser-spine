@@ -1,13 +1,14 @@
 import Phaser from 'phaser'
 
 import GameScene from '/scenes/game'
+import TitleScene from '/scenes/title'
 
 function assets (loader) {
   loader.image('white', 'images/white.png')
   loader.image('background', 'images/background.png')
 
-  // Loading spine works:
-  loader.spine('spineboy', 'images/sprites/spineboy/spineboy-pro.json', [ 'images/sprites/spineboy/spineboy-pma.atlas' ], true);
+  loader.setPath('images/sprites/jelly/')
+  loader.spine('jelly', 'jelly.json', 'jelly.atlas', true)
 }
 
 export default class LoadingScene extends Phaser.Scene {
@@ -35,10 +36,17 @@ export default class LoadingScene extends Phaser.Scene {
       // this.scene.add('TitleScene', TitleScene, false)
       this.scene.add('GameScene', GameScene, false)
 
-      // this.scene.start('TitleScene')
       if (process.env.NODE_ENV !== 'production') {
         this.scene.start('GameScene')
+      } else {
+        this.scene.start('GameScene')
+        // this.scene.start('TitleScene')
       }
+
+      setTimeout(() => {
+        window.game.scene.remove('GameScene')
+        window.game.scene.add('GameScene', GameScene, true)
+      }, 3000)
     })
 
     this.load.start()

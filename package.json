@@ -7,7 +7,7 @@
   "private": true,
   "scripts": {
     "watch": "parcel src/index.html",
-    "build": "parcel build --experimental-scope-hoisting --public-url . src/index.html",
+    "build": "parcel build --public-url . src/index.html",
     "lint": "standard"
   },
   "dependencies": {

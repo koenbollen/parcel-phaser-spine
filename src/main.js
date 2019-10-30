@@ -4,7 +4,7 @@ import Phaser from 'phaser'
 import LoadingScene from '/scenes/loading'
 import GameScene from '/scenes/game'
 
-import 'phaser/plugins/spine/dist/SpinePlugin' // ???
+import * as SpinePlugin from '../libs/SpinePlugin.js'
 
 import '/style.css'
 
@@ -16,7 +16,7 @@ const config = {
   width: 1280,
   height: 720,
   scale: {
-    mode: Phaser.Scale.WIDTH_CONTROLS_HEIGHT,
+    mode: Phaser.Scale.FIT,
     autoCenter: Phaser.Scale.CENTER_BOTH
   },
   scene: null,
@@ -29,43 +29,14 @@ const config = {
 }
 
 const settings = {
-  player: {
-    aim: {
-      chargeRate: 1,
-      minCharge: 500,
-      maxCharge: 2000,
-      firePower: 300
-    }
-  },
-  pickups: {
-    initialDelay: 7000,
-    interval: 10000,
-    distribution: [
-      'health',
-      'health',
-      'bomb'
-    ]
-  },
-  water: {
-    splashImpact: 500,
-    wave: {
-      passes: 2,
-      nodeCount: 100,
-      simulationSpeed: 20,
-      spread: 0.35
-    },
-    node: {
-      dampening: 0.005,
-      tension: 0.005,
-      baseWaveSpeed: 0.0001
-    }
-  }
 }
 
 export default class ExampleGame extends Phaser.Game {
   start () {
     super.start()
     this.settings = settings
+
+    this.input.keyboard.addCapture('SPACE') // to prevent the page from scrolling
     this.scene.add('LoadingScene', LoadingScene, true)
   }
 }
