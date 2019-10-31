@@ -1,7 +1,6 @@
 import Phaser from 'phaser'
 
 import GameScene from '/scenes/game'
-import TitleScene from '/scenes/title'
 
 function assets (loader) {
   loader.image('white', 'images/white.png')
