@@ -24,6 +24,9 @@
     "parcel-plugin-static-files-copy": "^2.2.1",
     "standard": "^13.1.0"
   },
+  "alias": {
+    "Spine": "./libs/spine-both.js"
+  },
   "staticFiles": {
     "staticPath": "assets",
     "watcherGlob": "**"

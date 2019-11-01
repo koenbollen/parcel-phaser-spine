@@ -4,7 +4,7 @@ import Phaser from 'phaser'
 import LoadingScene from '/scenes/loading'
 import GameScene from '/scenes/game'
 
-import * as SpinePlugin from '../libs/SpinePlugin.js'
+import SpinePlugin from 'phaser/plugins/spine/src/SpinePlugin'
 
 import '/style.css'
 
@@ -23,7 +23,7 @@ const config = {
   backgroundColor: '#4a485f',
   plugins: {
     scene: [
-      { key: 'SpinePlugin', plugin: window.SpinePlugin, mapping: 'spine' }
+      { key: 'SpinePlugin', plugin: SpinePlugin, mapping: 'spine' }
     ]
   }
 }

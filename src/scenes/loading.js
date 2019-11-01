@@ -43,6 +43,7 @@ export default class LoadingScene extends Phaser.Scene {
       }
 
       setTimeout(() => {
+        console.log('reloading gamescene')
         window.game.scene.remove('GameScene')
         window.game.scene.add('GameScene', GameScene, true)
       }, 3000)
